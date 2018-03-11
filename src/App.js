@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid } from 'semantic-ui-react'
 import logo from './logo.svg';
 import './App.css';
 
@@ -48,17 +49,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <form onSubmit={this.handdleSubmit}>
+        <Grid>
+          <form onSubmit={this.handdleSubmit}>
+          <Grid.Row>
+          Please enter the length of sides in CM.(Only number)
+          <Grid.Column mobile={16} tablet={8} computer={4}>
           side1: <input type="number" name="side1" onChange={this.handleChange} required/>
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
           side2: <input type="number" name="side2" onChange={this.handleChange} required/>
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
           side3: <input type="number" name="side3" onChange={this.handleChange} required/>
+          </Grid.Column>
           <input type="submit" value="Submit"/>
-        </form>
-        {this.state.result}
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+          <div class="result">
+            <br/>
+            Result: {this.state.result}
+          </div>
+          </Grid.Column>
+          </Grid.Row>
+          </form>
+        </Grid>
       </div>
     );
   }
